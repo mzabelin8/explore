@@ -1,5 +1,7 @@
 import pandas as pd
 import typedef
+import report
+from IPython.core.display import display
 
 
 def missing_values(data, by_columns=False):
@@ -11,7 +13,8 @@ def missing_values(data, by_columns=False):
     """
     if typedef.is_data_frame(data):
         if by_columns:
-            return dict(data.isna().sum())
-        res = {}
-        res['mis values'] = data.isna().sum().sum()
+            res = dict(data.isna().sum())
+            display(report.to_html(res))
+            return res
+        res = {'mis values': data.isna().sum().sum()}
         return res

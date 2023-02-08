@@ -12,4 +12,6 @@ def to_html(data: dict):
     :param data: dict
     :return: ipython.display html
     """
-    pass
+    pal = sns.light_palette("red", as_cmap=True)
+    df = pd.DataFrame(data.items(), columns=['Cols', 'Mis values'])
+    display(HTML(df.style.background_gradient(cmap=pal).to_html()))
