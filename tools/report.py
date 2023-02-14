@@ -6,6 +6,15 @@ import seaborn as sns
 from IPython.core.display import display, HTML, Markdown
 
 
+def highlight_non_zeros(x):
+    if x == 0:
+        color = '#84f08f'  # green
+    else:
+        color = '#f299a9'  # red
+
+    return f'background: {color}'
+
+
 def to_html(data: dict):
     """
     convert dict to html using pandas
